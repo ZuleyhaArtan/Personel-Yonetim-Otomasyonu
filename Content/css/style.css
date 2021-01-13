@@ -1,0 +1,17 @@
+﻿
+form {
+    margin-top: 170px;
+    font-family: "Times New Roman", Times, serif;
+    font-style: normal;
+    font-weight: bold;
+}
+
+
+body {
+    background-color: #d5d5d5;
+    background-image: url('../img/deniz.jpg');
+    }
+
+footer {
+    display: block;
+}

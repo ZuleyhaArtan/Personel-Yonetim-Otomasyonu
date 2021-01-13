@@ -1,0 +1,70 @@
+﻿@model IEnumerable<deneme2.Models.Personal>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/MasterPage.cshtml";
+}
+
+    <div class="container">
+    <div class="row">
+        <div class="col-12 text-right">
+            @Html.ActionLink("Yeni Personel Ekle", "Create",null,new {@class="btn btn-primary mb-3 text-light" })
+        </div>
+
+        <table class="table table-striped ">
+
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col"></th>
+                    <th scope="col" class="text-center">TC No</th>
+                    <th scope="col" class="text-center">Adı</th>
+                    <th scope="col" class="text-center">Soyadı</th>
+                    <th scope="col" class="text-center">Cinsiyet</th>
+                    <th scope="col" class="text-center">İşe Başlama Tarihi</th>
+                    <th scope="col" class="text-center">Şehir</th>
+                    <th scope="col" class="text-center">Departman</th>
+                    <th scope="col" class="text-center">Detaylar</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @{int orderCounter = 0;}
+                @foreach (var item in Model)
+                {
+                    orderCounter++;
+                    <tr>
+                        <td class="align-middle">
+                            @orderCounter
+                        </td>
+
+                        <td class="text-center align-middle">
+                            @item.tcNo
+                        </td>
+                        <td class="text-center align-middle">
+                            @item.personalName
+                        </td>
+                        <td class="text-center align-middle">
+                            @item.personalLastName
+                        </td>
+                        <td class="text-center align-middle">
+                            @(item.gender ? "Kadın" : "Erkek")
+                        </td>
+                        <td class="text-center align-middle">
+                            @item.workStartTime
+                        </td>
+                        <td class="text-center align-middle">
+                            @item.City.cityName
+                        </td>
+                        <td class="text-center align-middle">
+                            @item.Departmant.departmantName
+                        </td>
+                        <td class="text-center align-middle">
+                            @Html.ActionLink("İncele", "Details", new { id = item.personalId },new { @class="btn btn-success"})
+                        </td>
+                    </tr>
+                }
+
+        </table>
+
+    </div>
+</div>

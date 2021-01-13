@@ -1,0 +1,62 @@
+﻿@model deneme2.Models.Personal
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/MasterPage.cshtml";
+}
+
+
+
+<div class="row">
+    <div class="col-3"></div>
+    <div class="col-9">
+        <h2>@Model.personalName @Model.personalLastName bilgileri</h2>
+    </div>
+
+    <table class="table col-9">
+        <tr>
+            <td class="font-weight-bold text-right border-0">T.C. Kimlik No:</td>
+            <td class="text-left border-0">@Model.tcNo</td>
+        </tr>
+        <tr>
+            <td class="font-weight-bold text-right border-0">Adı:</td>
+            <td class="text-left border-0">@Model.personalName</td>
+        </tr>
+        <tr>
+            <td class="font-weight-bold text-right border-0">Soyadı:</td>
+            <td class="text-left border-0">@Model.personalLastName</td>
+        </tr>
+        <tr>
+            <td class="font-weight-bold text-right border-0">Doğum Tarihi:</td>
+            <td class="text-left border-0">@Model.dateOfBirth.ToShortDateString()</td>
+        </tr>
+        <tr>
+            <td class="font-weight-bold text-right border-0">Cinsiyeti:</td>
+            <td class="text-left border-0">@(Model.gender ? "Kadın" : "Erkek")</td>
+        </tr>
+        <tr>
+            <td class="font-weight-bold text-right border-0">Şehir:</td>
+            <td class="text-left border-0">@Model.City.cityName</td>
+        </tr>
+
+        <tr>
+            <td class="font-weight-bold text-right border-0">İşe Başlama Tarihi:</td>
+            <td class="text-left border-0">@Model.workStartTime.ToShortDateString()</td>
+        </tr>
+        <tr>
+            <td class="font-weight-bold text-right border-0">Kullanıcı mı:</td>
+            <td class="text-left border-0">@(Model.isUser ? "Evet" : "Hayır")</td>
+        </tr>
+        <tr>
+            <td class="font-weight-bold text-right border-0">Çalışma Birimi:</td>
+            <td class="text-left border-0">@Model.Departmant.departmantName</td>
+        </tr>
+    </table>
+</div>
+
+
+<p>
+    @Html.ActionLink("Kişiyi Sil", "Delete", new { id = Model.personalId }, new { @class = "btn-danger btn" }) |
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.personalId }, new { @class = "btn-success btn" }) |
+    @Html.ActionLink("Listeye Dön", "Index", null, new { @class = "btn-primary btn" })
+</p>

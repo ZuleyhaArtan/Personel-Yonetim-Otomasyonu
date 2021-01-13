@@ -1,0 +1,26 @@
+﻿@model deneme2.Models.Departmant
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/MasterPage.cshtml";
+}
+
+    <div class="row">
+        <div class="col-3"></div>
+        <div class="col-9">
+            <h2>@Model.departmantName bilgileri</h2>
+        </div>
+
+        <table class="table col-9">
+            <tr>
+                <td class="font-weight-bold text-right border-0"></td>
+                <td class="text-left border-0">@Model.departmantName</td>
+            </tr>
+            </table>
+           
+    </div>
+    <p>
+        @Html.ActionLink("Birimi Sil", "Delete", new { id = Model.Id }, new { @class = "btn-danger btn" }) |
+        @Html.ActionLink("Düzenle", "Edit", new { id = Model.Id }, new { @class = "btn-success btn" }) |
+        @Html.ActionLink("Listeye Dön", "Index", null, new { @class = "btn-primary btn" })
+    </p>

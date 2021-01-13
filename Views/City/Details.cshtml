@@ -1,0 +1,26 @@
+﻿@model deneme2.Models.City
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/MasterPage.cshtml";
+}
+
+<div class="row">
+
+    <table class="table col-9">
+        <tr>
+            <td class="font-weight-bold text-right border-0">Şehir Adı:</td>
+            <td class="text-left border-0">@Model.cityName</td>
+        </tr>
+    </table>
+</div>
+
+<p>
+    @Html.ActionLink("Şehri Sil", "Delete", new { id = Model.id }, new { @class = "btn-danger btn" }) |
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.id }, new { @class = "btn-success btn" }) |
+    @Html.ActionLink("Listeye Dön", "Index", null, new { @class = "btn-primary btn" })
+</p>
+
+
+
+
